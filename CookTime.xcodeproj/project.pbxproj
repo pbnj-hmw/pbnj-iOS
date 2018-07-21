@@ -23,6 +23,14 @@
 		7FB2EBCF2103B6AE006407A9 /* libbambuserplayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBCD2103B6AE006407A9 /* libbambuserplayer.a */; };
 		7FB2EBD02103B6AE006407A9 /* libbambuser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBCE2103B6AE006407A9 /* libbambuser.a */; };
 		7FB2EBD32103D02C006407A9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2EBD22103D02C006407A9 /* MenuViewController.swift */; };
+		7FB2EBD52103D7F8006407A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBD42103D7F8006407A9 /* libz.tbd */; };
+		7FB2EBD72103D809006407A9 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBD62103D809006407A9 /* libc++.tbd */; };
+		7FB2EBD92103D813006407A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBD82103D813006407A9 /* CoreGraphics.framework */; };
+		7FB2EBDB2103D81C006407A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBDA2103D81C006407A9 /* CoreLocation.framework */; };
+		7FB2EBDD2103D82A006407A9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBDC2103D829006407A9 /* CoreVideo.framework */; };
+		7FB2EBDF2103D832006407A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBDE2103D832006407A9 /* QuartzCore.framework */; };
+		7FB2EBE12103D83B006407A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */; };
+		7FB2EBE32103D84D006407A9 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +79,14 @@
 		7FB2EBCE2103B6AE006407A9 /* libbambuser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbambuser.a; sourceTree = "<group>"; };
 		7FB2EBD12103BA5B006407A9 /* libbambuserplayer-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libbambuserplayer-bridge.h"; sourceTree = "<group>"; };
 		7FB2EBD22103D02C006407A9 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7FB2EBD42103D7F8006407A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7FB2EBD62103D809006407A9 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		7FB2EBD82103D813006407A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7FB2EBDA2103D81C006407A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7FB2EBDC2103D829006407A9 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		7FB2EBDE2103D832006407A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB2EBE32103D84D006407A9 /* VideoToolbox.framework in Frameworks */,
+				7FB2EBE12103D83B006407A9 /* SystemConfiguration.framework in Frameworks */,
+				7FB2EBDF2103D832006407A9 /* QuartzCore.framework in Frameworks */,
+				7FB2EBDD2103D82A006407A9 /* CoreVideo.framework in Frameworks */,
+				7FB2EBDB2103D81C006407A9 /* CoreLocation.framework in Frameworks */,
+				7FB2EBD92103D813006407A9 /* CoreGraphics.framework in Frameworks */,
+				7FB2EBD72103D809006407A9 /* libc++.tbd in Frameworks */,
+				7FB2EBD52103D7F8006407A9 /* libz.tbd in Frameworks */,
 				7FB2EBC42103B67F006407A9 /* MediaPlayer.framework in Frameworks */,
 				7FB2EBC22103B670006407A9 /* CoreMedia.framework in Frameworks */,
 				7FB2EBC02103B664006407A9 /* AudioToolbox.framework in Frameworks */,
@@ -163,6 +187,14 @@
 		7FB2EBB82103B63C006407A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */,
+				7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */,
+				7FB2EBDE2103D832006407A9 /* QuartzCore.framework */,
+				7FB2EBDC2103D829006407A9 /* CoreVideo.framework */,
+				7FB2EBDA2103D81C006407A9 /* CoreLocation.framework */,
+				7FB2EBD82103D813006407A9 /* CoreGraphics.framework */,
+				7FB2EBD62103D809006407A9 /* libc++.tbd */,
+				7FB2EBD42103D7F8006407A9 /* libz.tbd */,
 				7FB2EBC52103B6AE006407A9 /* prebuilt */,
 				7FB2EBC32103B67F006407A9 /* MediaPlayer.framework */,
 				7FB2EBC12103B66F006407A9 /* CoreMedia.framework */,
@@ -513,6 +545,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NQRKAAHYPQ;
 				INFOPLIST_FILE = CookTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,6 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NQRKAAHYPQ;
 				INFOPLIST_FILE = CookTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

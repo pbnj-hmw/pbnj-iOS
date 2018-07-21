@@ -18,5 +18,6 @@
 #define libbambuserplayer_bridge_h
 
 #import "libbambuserplayer.h"
+#import "libbambuser.h"
 
 #endif

@@ -34,6 +34,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;Camera is required to make recipes&quot;</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>&quot;Microphone is required to show cookers what you&apos;ve made&quot;</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
