@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2264FB44F4B68926354FD64A /* Pods_CookTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A1F65625902C671CA10E33 /* Pods_CookTimeTests.framework */; };
+		30084A751E8769DDF845DB1E /* Pods_CookTimeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697247FD33DE5FD26513F4AB /* Pods_CookTimeUITests.framework */; };
 		7FB2EB8B2103A5CB006407A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2EB8A2103A5CB006407A9 /* AppDelegate.swift */; };
 		7FB2EB8D2103A5CB006407A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2EB8C2103A5CB006407A9 /* ViewController.swift */; };
 		7FB2EB902103A5CB006407A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB2EB8E2103A5CB006407A9 /* Main.storyboard */; };
@@ -31,6 +33,7 @@
 		7FB2EBDF2103D832006407A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBDE2103D832006407A9 /* QuartzCore.framework */; };
 		7FB2EBE12103D83B006407A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */; };
 		7FB2EBE32103D84D006407A9 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */; };
+		87B32DBF0E2DFBF2D31006FD /* Pods_CookTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EABCE0A2CDB43029C6AAAB4 /* Pods_CookTime.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		368A52A13440B3C6448FA0CF /* Pods-CookTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookTimeTests/Pods-CookTimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		4F22ADDF6F0B68D53E46BC96 /* Pods-CookTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookTime/Pods-CookTime.release.xcconfig"; sourceTree = "<group>"; };
+		6036A236BCECF65BF542C257 /* Pods-CookTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookTime/Pods-CookTime.debug.xcconfig"; sourceTree = "<group>"; };
+		697247FD33DE5FD26513F4AB /* Pods_CookTimeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookTimeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB2EB872103A5CB006407A9 /* CookTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB2EB8A2103A5CB006407A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FB2EB8C2103A5CB006407A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +94,11 @@
 		7FB2EBDE2103D832006407A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		8EABCE0A2CDB43029C6AAAB4 /* Pods_CookTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A1F65625902C671CA10E33 /* Pods_CookTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C559C9C288438D701A37D1F /* Pods-CookTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookTimeTests/Pods-CookTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD0E25447B240DD5B288CDC5 /* Pods-CookTimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTimeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookTimeUITests/Pods-CookTimeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D68EAF4D6CBD53AA5371A089 /* Pods-CookTimeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTimeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookTimeUITests/Pods-CookTimeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +122,7 @@
 				7FB2EBCF2103B6AE006407A9 /* libbambuserplayer.a in Frameworks */,
 				7FB2EBBC2103B650006407A9 /* Foundation.framework in Frameworks */,
 				7FB2EBBA2103B63C006407A9 /* UIKit.framework in Frameworks */,
+				87B32DBF0E2DFBF2D31006FD /* Pods_CookTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2264FB44F4B68926354FD64A /* Pods_CookTimeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30084A751E8769DDF845DB1E /* Pods_CookTimeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +153,7 @@
 				7FB2EBA92103A5D1006407A9 /* CookTimeUITests */,
 				7FB2EB882103A5CB006407A9 /* Products */,
 				7FB2EBB82103B63C006407A9 /* Frameworks */,
+				8EFAEF51FCC040F6757042E5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +218,9 @@
 				7FB2EBBD2103B656006407A9 /* AVFoundation.framework */,
 				7FB2EBBB2103B650006407A9 /* Foundation.framework */,
 				7FB2EBB92103B63C006407A9 /* UIKit.framework */,
+				8EABCE0A2CDB43029C6AAAB4 /* Pods_CookTime.framework */,
+				96A1F65625902C671CA10E33 /* Pods_CookTimeTests.framework */,
+				697247FD33DE5FD26513F4AB /* Pods_CookTimeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +255,19 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		8EFAEF51FCC040F6757042E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6036A236BCECF65BF542C257 /* Pods-CookTime.debug.xcconfig */,
+				4F22ADDF6F0B68D53E46BC96 /* Pods-CookTime.release.xcconfig */,
+				9C559C9C288438D701A37D1F /* Pods-CookTimeTests.debug.xcconfig */,
+				368A52A13440B3C6448FA0CF /* Pods-CookTimeTests.release.xcconfig */,
+				D68EAF4D6CBD53AA5371A089 /* Pods-CookTimeUITests.debug.xcconfig */,
+				BD0E25447B240DD5B288CDC5 /* Pods-CookTimeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,9 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FB2EBAF2103A5D1006407A9 /* Build configuration list for PBXNativeTarget "CookTime" */;
 			buildPhases = (
+				17CE0ADFCC092E4989475C5F /* [CP] Check Pods Manifest.lock */,
 				7FB2EB832103A5CB006407A9 /* Sources */,
 				7FB2EB842103A5CB006407A9 /* Frameworks */,
 				7FB2EB852103A5CB006407A9 /* Resources */,
+				9A0AD65B814BBFE7C11480BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +294,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FB2EBB22103A5D1006407A9 /* Build configuration list for PBXNativeTarget "CookTimeTests" */;
 			buildPhases = (
+				777053A2CF960D84A6670F9E /* [CP] Check Pods Manifest.lock */,
 				7FB2EB972103A5D1006407A9 /* Sources */,
 				7FB2EB982103A5D1006407A9 /* Frameworks */,
 				7FB2EB992103A5D1006407A9 /* Resources */,
@@ -278,6 +313,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FB2EBB52103A5D1006407A9 /* Build configuration list for PBXNativeTarget "CookTimeUITests" */;
 			buildPhases = (
+				9F42BF24791ECA0F43657F1E /* [CP] Check Pods Manifest.lock */,
 				7FB2EBA22103A5D1006407A9 /* Sources */,
 				7FB2EBA32103A5D1006407A9 /* Frameworks */,
 				7FB2EBA42103A5D1006407A9 /* Resources */,
@@ -361,6 +397,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17CE0ADFCC092E4989475C5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CookTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		777053A2CF960D84A6670F9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CookTimeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A0AD65B814BBFE7C11480BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CookTime/Pods-CookTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookTime/Pods-CookTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F42BF24791ECA0F43657F1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CookTimeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FB2EB832103A5CB006407A9 /* Sources */ = {
@@ -540,6 +651,7 @@
 		};
 		7FB2EBB02103A5D1006407A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6036A236BCECF65BF542C257 /* Pods-CookTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -564,6 +676,7 @@
 		};
 		7FB2EBB12103A5D1006407A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F22ADDF6F0B68D53E46BC96 /* Pods-CookTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,6 +701,7 @@
 		};
 		7FB2EBB32103A5D1006407A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C559C9C288438D701A37D1F /* Pods-CookTimeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -609,6 +723,7 @@
 		};
 		7FB2EBB42103A5D1006407A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 368A52A13440B3C6448FA0CF /* Pods-CookTimeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -630,6 +745,7 @@
 		};
 		7FB2EBB62103A5D1006407A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D68EAF4D6CBD53AA5371A089 /* Pods-CookTimeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,6 +766,7 @@
 		};
 		7FB2EBB72103A5D1006407A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD0E25447B240DD5B288CDC5 /* Pods-CookTimeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
