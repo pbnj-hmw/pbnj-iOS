@@ -14,7 +14,7 @@ class ViewController: UIViewController, BambuserPlayerDelegate {
     
     var playButton: UIButton = UIButton()
     var pauseButton: UIButton = UIButton()
-    var rewindButton: UIButton = UIButton()
+    var viewMenuButton: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +31,9 @@ class ViewController: UIViewController, BambuserPlayerDelegate {
         pauseButton.setTitle("Pause", for: UIControlState.normal)
         pauseButton.addTarget(videoPlayer, action: #selector(BambuserPlayer.pauseVideo as (BambuserPlayer) -> () -> Void), for: UIControlEvents.touchUpInside)
         self.view.addSubview(pauseButton)
-        rewindButton.setTitle("Rewind", for: UIControlState.normal)
-        rewindButton.addTarget(self, action: #selector(ViewController.rewind), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(rewindButton)
+        viewMenuButton.setTitle("View Menu", for: UIControlState.normal)
+        viewMenuButton.addTarget(self, action: #selector(ViewController.viewMenu), for: UIControlEvents.touchUpInside)
+        self.view.addSubview(viewMenuButton)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -48,11 +48,14 @@ class ViewController: UIViewController, BambuserPlayerDelegate {
         
         playButton.frame = CGRect(x: 20, y: 20 + statusBarOffset, width: 100, height: 40)
         pauseButton.frame = CGRect(x: 20, y: 80 + statusBarOffset, width: 100, height: 40)
-        rewindButton.frame = CGRect(x: 20, y: 140 + statusBarOffset, width: 100, height: 40)
+        viewMenuButton.frame = CGRect(x: 20, y: 140 + statusBarOffset, width: 100, height: 40)
     }
     
-    @objc func rewind() {
-        videoPlayer.seek(to: 0.0);
+    @objc func viewMenu() {
+//        videoPlayer.seek(to: 0.0);
+        let mainStorybaord = UIStoryboard.init(name: "Main", bundle: nil)
+        let menuVC = mainStorybaord.instantiateViewController(withIdentifier: "Menu")
+        present(menuVC, animated: true, completion: nil)
     }
 }
 

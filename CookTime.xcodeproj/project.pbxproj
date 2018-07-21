@@ -22,6 +22,7 @@
 		7FB2EBC42103B67F006407A9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBC32103B67F006407A9 /* MediaPlayer.framework */; };
 		7FB2EBCF2103B6AE006407A9 /* libbambuserplayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBCD2103B6AE006407A9 /* libbambuserplayer.a */; };
 		7FB2EBD02103B6AE006407A9 /* libbambuser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBCE2103B6AE006407A9 /* libbambuser.a */; };
+		7FB2EBD32103D02C006407A9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2EBD22103D02C006407A9 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		7FB2EBCD2103B6AE006407A9 /* libbambuserplayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbambuserplayer.a; sourceTree = "<group>"; };
 		7FB2EBCE2103B6AE006407A9 /* libbambuser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbambuser.a; sourceTree = "<group>"; };
 		7FB2EBD12103BA5B006407A9 /* libbambuserplayer-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libbambuserplayer-bridge.h"; sourceTree = "<group>"; };
+		7FB2EBD22103D02C006407A9 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				7FB2EBD12103BA5B006407A9 /* libbambuserplayer-bridge.h */,
 				7FB2EB8C2103A5CB006407A9 /* ViewController.swift */,
 				7FB2EB8E2103A5CB006407A9 /* Main.storyboard */,
+				7FB2EBD22103D02C006407A9 /* MenuViewController.swift */,
 				7FB2EB912103A5D1006407A9 /* Assets.xcassets */,
 				7FB2EB932103A5D1006407A9 /* LaunchScreen.storyboard */,
 				7FB2EB962103A5D1006407A9 /* Info.plist */,
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FB2EB8D2103A5CB006407A9 /* ViewController.swift in Sources */,
+				7FB2EBD32103D02C006407A9 /* MenuViewController.swift in Sources */,
 				7FB2EB8B2103A5CB006407A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
