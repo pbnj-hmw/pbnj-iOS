@@ -15,6 +15,9 @@ class ViewController: UIViewController, BambuserViewDelegate {
     var bambuserView: BambuserView
      var broadcastButton : UIButton
     
+    let nextButton = UIButton()
+    let backButton = UIButton()
+    
 //    var playButton: UIButton = UIButton()
 //    var pauseButton: UIButton = UIButton()
 //    var viewMenuButton: UIButton = UIButton()
@@ -39,6 +42,9 @@ class ViewController: UIViewController, BambuserViewDelegate {
         broadcastButton.addTarget(self, action: #selector(ViewController.broadcast), for: UIControlEvents.touchUpInside)
         broadcastButton.setTitle("Broadcast", for: UIControlState.normal)
         self.view.addSubview(broadcastButton)
+        self.view.addSubview(backButton)
+        addAllElementsToView()
+        setUIElements()
 //        videoPlayer.delegate = self;
 //
 //        view.addSubview(videoPlayer)
@@ -58,10 +64,12 @@ class ViewController: UIViewController, BambuserViewDelegate {
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func addAllElementsToView() {
+        view.addSubview(bambuserView.view)
+        view.addSubview(broadcastButton)
+        view.addSubview(backButton)
+        view.addSubview(nextButton)
     }
     
 //    override func viewWillLayoutSubviews() {
@@ -80,7 +88,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
         bambuserView.view.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.01)
+            make.width.equalToSuperview().multipliedBy(0.00)
             make.height.equalToSuperview()
         }
         
@@ -90,6 +98,35 @@ class ViewController: UIViewController, BambuserViewDelegate {
             make.right.equalToSuperview().multipliedBy(0.80)
         }
         
+        backButton.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.25)
+            make.bottom.equalToSuperview()
+        }
+        
+        nextButton.snp.makeConstraints { (make) in
+            make.left.equalTo(backButton.snp.right)
+            make.height.equalToSuperview().multipliedBy(0.50)
+            make.width.equalToSuperview().multipliedBy(0.25)
+            make.bottom.equalToSuperview()
+        }
+        
+    }
+    
+    private func setUIElements() {
+        setBackButton()
+        setNextButton()
+    }
+    
+    private func setBackButton() {
+        backButton.setTitle("Back", for: .normal)
+        backButton.backgroundColor = UIColor.red
+    }
+    
+    private func setNextButton() {
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.backgroundColor = UIColor.green
     }
     
     @objc func broadcast() {
