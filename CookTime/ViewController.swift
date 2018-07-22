@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Bond
 
 class ViewController: UIViewController, BambuserViewDelegate {
 
@@ -46,6 +47,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
         self.view.addSubview(backButton)
         addAllElementsToView()
         setUIElements()
+        bindUIElements()
 //        videoPlayer.delegate = self;
 //
 //        view.addSubview(videoPlayer)
@@ -135,6 +137,23 @@ class ViewController: UIViewController, BambuserViewDelegate {
     private func setNextButton() {
         nextButton.setTitle("Next", for: .normal)
         nextButton.backgroundColor = UIColor.green
+    }
+    
+    private func bindUIElements() {
+        bindNextButton()
+        bindBackButton()
+    }
+    
+    private func bindNextButton() {
+        nextButton.reactive.tap.bind(to: self) { me in
+            me.menuStepView.animateNext()
+        }
+    }
+    
+    private func bindBackButton() {
+        backButton.reactive.tap.bind(to: self) { me in
+            me.menuStepView.animatePrevious()
+        }
     }
     
     @objc func broadcast() {

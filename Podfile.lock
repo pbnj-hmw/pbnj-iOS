@@ -1,16 +1,28 @@
 PODS:
+  - Bond (6.8.3):
+    - Differ (~> 1.0)
+    - ReactiveKit (~> 3.9)
+  - Differ (1.2.3)
+  - ReactiveKit (3.9.6)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - Bond
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Bond
+    - Differ
+    - ReactiveKit
     - SnapKit
 
 SPEC CHECKSUMS:
+  Bond: d6d25c0cb90459b9d27197251405c6db254da4cf
+  Differ: 061f3298ea9408494c43b530c44583e555884daf
+  ReactiveKit: 804d3093ad42dee0de19e42d4f7dcae9c14364b0
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 5d509bf353046be4e93e3e1cabd9dbdfa3d041b7
+PODFILE CHECKSUM: 9aa6e5f73eadf63d56e0650fe11df936afd9c1d7
 
 COCOAPODS: 1.5.2

@@ -11,9 +11,10 @@ import UIKit
 import SnapKit
 
 class MenuStepView: UIView {
-    var instructions: [String] = []
-    var displayingLabel = UILabel()
-    var nextLabel = UILabel()
+    private var instructions: [String] = ["0", "1", "2", "3", "4"]
+    private var currentIndex = 0
+    private var displayingLabel = UILabel()
+    private var nextLabel = UILabel()
     
     public required init() {
         super.init(frame: CGRect.zero)
@@ -36,19 +37,26 @@ class MenuStepView: UIView {
     }
     
     public func animateNext() -> Bool {
-        displayingLabel.text = "PoooOnYou"
-        return false
+        guard currentIndex < instructions.count else { return false }
+        
+        displayingLabel.text = instructions[currentIndex]
+        currentIndex += 1
+        return true
     }
 
     public func animatePrevious() -> Bool {
-        return false
+        guard currentIndex > 0 else { return false }
+        
+        currentIndex -= 1
+        displayingLabel.text = instructions[currentIndex]
+        return true
     }
     
     private func initializeUI() {
         addSubview(displayingLabel)
         addSubview(nextLabel)
         nextLabel.isHidden = true
-        displayingLabel.text = "Poo"
+        displayingLabel.text = instructions[currentIndex]
     }
     
     private func createConstraints() {

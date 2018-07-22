@@ -9,6 +9,7 @@ target 'CookTime' do
 
   # Pods for CookTime
   pod 'SnapKit', '~> 4.0.0'
+  pod 'Bond'
 
   target 'CookTimeTests' do
     inherit! :search_paths
