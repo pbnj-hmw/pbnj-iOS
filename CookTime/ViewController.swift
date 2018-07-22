@@ -97,7 +97,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
     }
     
     private func setBambuserView() {
-        bambuserView.orientation = UIInterfaceOrientation.landscapeLeft
+        bambuserView.orientation = UIInterfaceOrientation.landscapeRight
         bambuserView.applicationId = "C2i37bAE4rpiQbIEll9tXA"
         bambuserView.delegate = self;
     }
@@ -155,7 +155,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
 
 extension ViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscapeLeft
+        return .landscapeRight
     }
     
     override var shouldAutorotate: Bool {
