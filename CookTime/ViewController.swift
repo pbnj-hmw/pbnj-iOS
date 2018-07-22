@@ -20,10 +20,6 @@ class ViewController: UIViewController, BambuserViewDelegate {
     let nextButton = UIButton()
     let backButton = UIButton()
     
-//    var playButton: UIButton = UIButton()
-//    var pauseButton: UIButton = UIButton()
-//    var viewMenuButton: UIButton = UIButton()
-    
     required init?(coder aDecoder: NSCoder) {
         bambuserView = BambuserView(preset: kSessionPresetAuto)
         broadcastButton = UIButton(type: UIButtonType.system)
@@ -32,15 +28,6 @@ class ViewController: UIViewController, BambuserViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bambuserView.orientation = UIInterfaceOrientation.landscapeLeft
-        bambuserView.applicationId = "C2i37bAE4rpiQbIEll9tXA"
-        bambuserView.delegate = self;
-        
-        
-        broadcastButton.addTarget(self, action: #selector(ViewController.broadcast), for: UIControlEvents.touchUpInside)
-        broadcastButton.setTitle("Broadcast", for: UIControlState.normal)
-        self.view.addSubview(broadcastButton)
-        self.view.addSubview(backButton)
         addAllElementsToView()
         setUIElements()
         bindUIElements()
@@ -98,6 +85,8 @@ class ViewController: UIViewController, BambuserViewDelegate {
     private func setUIElements() {
         setBackButton()
         setNextButton()
+        setBambuserView()
+        setBroadcastButton()
     }
     
     private func setBackButton() {
@@ -108,6 +97,17 @@ class ViewController: UIViewController, BambuserViewDelegate {
     private func setNextButton() {
         nextButton.setTitle("Next", for: .normal)
         nextButton.backgroundColor = UIColor.green
+    }
+    
+    private func setBambuserView() {
+        bambuserView.orientation = UIInterfaceOrientation.landscapeLeft
+        bambuserView.applicationId = "C2i37bAE4rpiQbIEll9tXA"
+        bambuserView.delegate = self;
+    }
+    
+    private func setBroadcastButton() {
+        broadcastButton.addTarget(self, action: #selector(ViewController.broadcast), for: UIControlEvents.touchUpInside)
+        broadcastButton.setTitle("Broadcast", for: UIControlState.normal)
     }
     
     private func bindUIElements() {
