@@ -163,6 +163,8 @@ class MenuStepView: UIView {
             self?.nextInstruction.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
+                make.right.equalToSuperview()
+                make.left.equalToSuperview()
             })
             self?.layoutIfNeeded()
         })
@@ -189,6 +191,8 @@ class MenuStepView: UIView {
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.bottom.equalTo(self.snp.top)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         })
         self.layoutIfNeeded()
     }
@@ -203,6 +207,8 @@ class MenuStepView: UIView {
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.top.equalTo(self.snp.bottom)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         })
         layoutIfNeeded()
     }
@@ -226,6 +232,8 @@ class MenuStepView: UIView {
             self.nextInstruction.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
+                make.right.equalToSuperview()
+                make.left.equalToSuperview()
             })
             self.layoutIfNeeded()
         })
@@ -250,6 +258,8 @@ class MenuStepView: UIView {
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.top.equalTo(self.snp.bottom)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         }
         self.layoutIfNeeded()
     }
@@ -264,6 +274,8 @@ class MenuStepView: UIView {
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.bottom.equalTo(self.snp.top)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         })
         layoutIfNeeded()
     }
@@ -286,12 +298,16 @@ class MenuStepView: UIView {
         displayingInstruction.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         }
         
         nextInstruction.snp.makeConstraints { [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalTo(self.snp.left)
             make.centerY.equalToSuperview()
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         }
     }
     

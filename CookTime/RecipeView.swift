@@ -37,9 +37,9 @@ class RecipeView: UIView {
     private func setRecipeTitleConstraint() {
         title.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
             make.top.equalTo(step.snp.bottom)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
         }
         
         step.snp.makeConstraints { (make) in
@@ -62,7 +62,10 @@ class RecipeView: UIView {
     
     private func setRecipeTitle () {
         title.text = recipe?.title
-        step.font = UIFont.italicSystemFont(ofSize: 13)
+        title.font = UIFont.italicSystemFont(ofSize: 13)
+        title.textAlignment = .center
+        title.numberOfLines = 0
+        title.lineBreakMode = NSLineBreakMode.byWordWrapping
     }
     
     private func setRecipeStep() {
