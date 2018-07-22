@@ -62,9 +62,9 @@ class MenuStepView: UIView {
         do {
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             if let recipes = json as? [AnyObject] {
-                for recipe in recipes {
+                for (index, recipe) in recipes.enumerated() {
                     guard let recipeJSON = recipe as? [String : AnyObject] else { continue }
-                    let recipe = parseRecipeJSON(json: recipeJSON)
+                    let recipe = parseRecipeJSON(json: recipeJSON, number: index)
                     instructions.append(recipe)
                 }
                 renderFirstRecipe()
@@ -72,7 +72,7 @@ class MenuStepView: UIView {
         }
     }
     
-    private func parseRecipeJSON(json: [String: AnyObject]) -> RecipeInstruction {
+    private func parseRecipeJSON(json: [String: AnyObject], number: Int) -> RecipeInstruction {
         var title = ""
         var description = ""
         var imageLink = ""
@@ -86,7 +86,7 @@ class MenuStepView: UIView {
         if let imageLinkFromJSON = json["image_link"] as? String {
             imageLink = imageLinkFromJSON
         }
-        return RecipeInstruction(title: title, description: description, imageLink: imageLink)
+        return RecipeInstruction(title: title, description: description, imageLink: imageLink, step: number)
     }
 
     override open func layoutSubviews() {

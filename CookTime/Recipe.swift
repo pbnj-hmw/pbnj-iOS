@@ -12,4 +12,5 @@ public struct RecipeInstruction {
     var title: String
     var description: String
     var imageLink: String
+    var step: Int
 }

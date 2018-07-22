@@ -11,6 +11,7 @@ target 'CookTime' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'Bond'
   pod 'Alamofire', '~> 4.7'
+  pod 'Kingfisher', '~> 4.0'
 
   target 'CookTimeTests' do
     inherit! :search_paths
