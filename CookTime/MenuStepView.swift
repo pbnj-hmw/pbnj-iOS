@@ -48,6 +48,12 @@ class MenuStepView: UIView {
     
     private func animateNextElement() {
         layoutSubviews()
+        self.nextLabel.snp.remakeConstraints({ [weak self] (make) in
+            guard let `self` = self else { return }
+            make.centerX.equalTo(self.snp.left)
+            make.centerY.equalToSuperview()
+        })
+        self.layoutIfNeeded()
         self.nextLabel.isHidden = false
         UIView.animate(withDuration: 1, animations: { [weak self] in
             self?.nextLabel.snp.remakeConstraints({ (make) in
@@ -73,19 +79,53 @@ class MenuStepView: UIView {
             var label = self?.nextLabel
             self?.nextLabel = self?.displayingLabel ?? UILabel()
             self?.displayingLabel = label ?? UILabel()
+        }
+    }
+    
+    private func animateNextElementBack() {
+        layoutSubviews()
+        self.nextLabel.snp.remakeConstraints { (make) in
+            make.right.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        self.layoutIfNeeded()
+        self.nextLabel.isHidden = false
+        UIView.animate(withDuration: 1, animations: { [weak self] in
             self?.nextLabel.snp.remakeConstraints({ (make) in
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview()
+            })
+            self?.layoutIfNeeded()
+        })
+    }
+    
+    private func animateCurrentElementOffScreenBack() {
+        layoutSubviews()
+        UIView.animate(withDuration: 1.0, animations: { [weak self] in
+            self?.displayingLabel.snp.remakeConstraints({ [weak self] (make) in
                 guard let `self` = self else { return }
                 make.centerX.equalTo(self.snp.left)
                 make.centerY.equalToSuperview()
             })
+            self?.layoutIfNeeded()
+        }) { [weak self] (_)
+            in
+            self?.displayingLabel.isHidden = true
+            var label = self?.nextLabel
+            self?.nextLabel = self?.displayingLabel ?? UILabel()
+            self?.displayingLabel = label ?? UILabel()
         }
     }
+    
+    
 
     public func animatePrevious() -> Bool {
         guard nextIndex > 0 else { return false }
         
         nextIndex -= 1
-        displayingLabel.text = instructions[nextIndex]
+        nextLabel.text = instructions[nextIndex]
+        animateNextElementBack()
+        animateCurrentElementOffScreenBack()
         return true
     }
     

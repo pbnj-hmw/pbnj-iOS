@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CookTime/MenuStepView.swift"
-            timestampString = "553914622.7733051"
+            timestampString = "553916435.619856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CookTime/MenuStepView.swift"
-            timestampString = "553914622.774253"
+            timestampString = "553916435.620307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "animateCurrentElementOffScreen()"
             landmarkType = "7">
          </BreakpointContent>
