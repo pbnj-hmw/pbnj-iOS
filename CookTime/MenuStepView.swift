@@ -108,15 +108,33 @@ class MenuStepView: UIView {
     }
     
     private func animateNextElementTopToMiddle() {
+        setNextElementOpacityToZero()
         placeNextElementAgainstTopWall()
         self.nextInstruction.isHidden = false
         UIView.animate(withDuration: 1, animations: { [weak self] in
+            self?.setNextElementOpacityToOne()
             self?.nextInstruction.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
             })
             self?.layoutIfNeeded()
         })
+    }
+    
+    private func setNextElementOpacityToZero() {
+        nextInstruction.alpha = 0
+    }
+    
+    private func setNextElementOpacityToOne() {
+        nextInstruction.alpha = 1
+    }
+    
+    private func setDisplsayingElementAlphaToOne() {
+        displayingInstruction.alpha = 1
+    }
+    
+    private func setDisplayingElementAlphaToZero() {
+        displayingInstruction.alpha = 0
     }
     
     private func placeNextElementAgainstTopWall() {
@@ -133,6 +151,7 @@ class MenuStepView: UIView {
     }
     
     private func animateDisplayMiddleToBottom() {
+        setDisplayingElementAlphaToZero()
         displayingInstruction.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
@@ -152,8 +171,11 @@ class MenuStepView: UIView {
     }
     
     private func animateNextElementBottomToMiddle() {
+        setNextElementOpacityToZero()
         UIView.animate(withDuration: 1, animations: { [weak self] in
             guard let `self` = self else { return }
+            self.setNextElementOpacityToOne()
+            self.setNextElementOpacityToOne()
             self.nextInstruction.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
@@ -190,6 +212,7 @@ class MenuStepView: UIView {
     }
     
     private func animateDisplayLabelToTop() {
+        setDisplayingElementAlphaToZero()
         displayingInstruction.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
