@@ -33,6 +33,7 @@
 		7FB2EBDF2103D832006407A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBDE2103D832006407A9 /* QuartzCore.framework */; };
 		7FB2EBE12103D83B006407A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */; };
 		7FB2EBE32103D84D006407A9 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */; };
+		7FB2EBE52103FD1A006407A9 /* MenuStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB2EBE42103FD1A006407A9 /* MenuStepView.swift */; };
 		87B32DBF0E2DFBF2D31006FD /* Pods_CookTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EABCE0A2CDB43029C6AAAB4 /* Pods_CookTime.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		7FB2EBDE2103D832006407A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7FB2EBE02103D83B006407A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7FB2EBE22103D84C006407A9 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		7FB2EBE42103FD1A006407A9 /* MenuStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStepView.swift; sourceTree = "<group>"; };
 		8EABCE0A2CDB43029C6AAAB4 /* Pods_CookTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A1F65625902C671CA10E33 /* Pods_CookTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C559C9C288438D701A37D1F /* Pods-CookTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookTimeTests/Pods-CookTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				7FB2EB8A2103A5CB006407A9 /* AppDelegate.swift */,
 				7FB2EBD12103BA5B006407A9 /* libbambuserplayer-bridge.h */,
 				7FB2EB8C2103A5CB006407A9 /* ViewController.swift */,
+				7FB2EBE42103FD1A006407A9 /* MenuStepView.swift */,
 				7FB2EB8E2103A5CB006407A9 /* Main.storyboard */,
 				7FB2EBD22103D02C006407A9 /* MenuViewController.swift */,
 				7FB2EB912103A5D1006407A9 /* Assets.xcassets */,
@@ -479,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FB2EB8D2103A5CB006407A9 /* ViewController.swift in Sources */,
+				7FB2EBE52103FD1A006407A9 /* MenuStepView.swift in Sources */,
 				7FB2EBD32103D02C006407A9 /* MenuViewController.swift in Sources */,
 				7FB2EB8B2103A5CB006407A9 /* AppDelegate.swift in Sources */,
 			);

@@ -13,7 +13,8 @@ class ViewController: UIViewController, BambuserViewDelegate {
 
 //    var videoPlayer: BambuserPlayer = BambuserPlayer.init()
     var bambuserView: BambuserView
-     var broadcastButton : UIButton
+    var broadcastButton : UIButton
+    let menuStepView = MenuStepView()
     
     let nextButton = UIButton()
     let backButton = UIButton()
@@ -70,6 +71,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
         view.addSubview(broadcastButton)
         view.addSubview(backButton)
         view.addSubview(nextButton)
+        view.addSubview(menuStepView)
     }
     
 //    override func viewWillLayoutSubviews() {
@@ -112,6 +114,12 @@ class ViewController: UIViewController, BambuserViewDelegate {
             make.bottom.equalToSuperview()
         }
         
+        menuStepView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.right.equalTo(bambuserView.view.snp.left)
+            make.height.equalToSuperview().multipliedBy(0.50)
+            make.top.equalToSuperview()
+        }
     }
     
     private func setUIElements() {
