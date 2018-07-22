@@ -49,13 +49,13 @@ class MenuStepView: UIView {
         }
         currentIndex += 1
         nextLabel.text = instructions[currentIndex]
-        animateNextElementRightToLeft()
+        animateNextElementTopToMiddle()
         animateCurrentElementOffScreen()
         return true
     }
     
-    private func animateNextElementRightToLeft() {
-        placeNextElementAgainstRightWall()
+    private func animateNextElementTopToMiddle() {
+        placeNextElementAgainstTopWall()
         self.nextLabel.isHidden = false
         UIView.animate(withDuration: 1, animations: { [weak self] in
             self?.nextLabel.snp.remakeConstraints({ (make) in
@@ -66,43 +66,43 @@ class MenuStepView: UIView {
         })
     }
     
-    private func placeNextElementAgainstRightWall() {
+    private func placeNextElementAgainstTopWall() {
         self.nextLabel.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
-            make.centerX.equalTo(self.snp.right)
-            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(self.snp.top)
         })
         self.layoutIfNeeded()
     }
     
     private func animateCurrentElementOffScreen() {
-        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToLeft, completion: swapDisplayAndCurrentLabels)
+        UIView.animate(withDuration: 1.0, animations: animateDisplayMiddleToBottom, completion: swapDisplayAndCurrentLabels)
     }
     
-    private func animateDisplayLabelToLeft() {
+    private func animateDisplayMiddleToBottom() {
         displayingLabel.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
-            make.centerX.equalTo(self.snp.left)
-            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.snp.bottom)
         })
         layoutIfNeeded()
     }
     
     private func animateNextElementBack() {
-        placeNextElementAgainstLeftWall()
+        placeNextElementAgainstBottomWall()
         showNextLabel()
-        animateNextElementLeftToMiddle()
+        animateNextElementBottomToMiddle()
     }
     
     private func showNextLabel() {
         self.nextLabel.isHidden = false
     }
     
-    private func animateNextElementLeftToMiddle() {
+    private func animateNextElementBottomToMiddle() {
         UIView.animate(withDuration: 1, animations: { [weak self] in
             guard let `self` = self else { return }
             self.nextLabel.snp.remakeConstraints({ (make) in
-                make.centerX.equalTo(self.snp.centerX)
+                make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
             })
             self.layoutIfNeeded()
@@ -122,23 +122,24 @@ class MenuStepView: UIView {
         return true
     }
     
-    private func placeNextElementAgainstLeftWall() {
-        self.nextLabel.snp.remakeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.centerY.equalToSuperview()
+    private func placeNextElementAgainstBottomWall() {
+        self.nextLabel.snp.remakeConstraints { [weak self] (make) in
+            guard let `self` = self else { return }
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.snp.bottom)
         }
         self.layoutIfNeeded()
     }
     
     private func animateCurrentElementOffScreenBack() {
-        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToRight, completion: swapDisplayAndCurrentLabels)
+        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToTop, completion: swapDisplayAndCurrentLabels)
     }
     
-    private func animateDisplayLabelToRight() {
+    private func animateDisplayLabelToTop() {
         displayingLabel.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
-            make.centerX.equalTo(self.snp.right)
-            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(self.snp.top)
         })
         layoutIfNeeded()
     }

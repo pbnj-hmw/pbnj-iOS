@@ -38,6 +38,8 @@ class ViewController: UIViewController, BambuserViewDelegate {
         view.addSubview(backButton)
         view.addSubview(nextButton)
         view.addSubview(menuStepView)
+        view.sendSubview(toBack: menuStepView)
+        view.sendSubview(toBack: bambuserView.view)
     }
     
     override func viewWillLayoutSubviews() {
