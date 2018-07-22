@@ -12,7 +12,6 @@ import Bond
 
 class ViewController: UIViewController, BambuserViewDelegate {
 
-//    var videoPlayer: BambuserPlayer = BambuserPlayer.init()
     var bambuserView: BambuserView
     var broadcastButton : UIButton
     let menuStepView = MenuStepView()
