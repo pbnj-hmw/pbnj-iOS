@@ -37,7 +37,26 @@ class MenuStepView: UIView {
         backgroundColor = .white
         initializeUI()
         createConstraints()
-        getRecipeItems()
+//        getRecipeItems()
+        getRecipeSteps()
+    }
+    
+    private func getRecipeSteps() {
+        Alamofire.request("https://api.homecooked.live/api/show/next").responseJSON { [weak self] response in
+            guard let `self` = self else { return }
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+                self.parseShow(data: data)
+            }
+        }
     }
     
     private func getRecipeItems() {
@@ -73,6 +92,34 @@ class MenuStepView: UIView {
         }
     }
     
+    private func parseShow(data: Data) {
+        do {
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            guard let show = json as? [String:AnyObject] else { return }
+            if let steps = show["steps"] as? [AnyObject] {
+                for step in steps {
+                    guard let stepJSON = step as? [String:AnyObject] else { continue }
+                    var step = parseStep(json: stepJSON)
+                    instructions.append(step)
+                }
+                renderFirstRecipe()
+            }
+        }
+    }
+    
+    private func parseStep(json: [String:AnyObject]) -> RecipeInstruction {
+        var title = ""
+        var stepNumber = 0
+        
+        if let titleFromJSON = json["title"] as? String {
+            title = titleFromJSON
+        }
+        if let stepNumberFromJSON = json["step_number"] as? Int {
+            stepNumber = stepNumberFromJSON
+        }
+        return RecipeInstruction(title: title, step: stepNumber)
+    }
+    
     private func parseRecipeJSON(json: [String: AnyObject], number: Int) -> RecipeInstruction {
         var title = ""
         var description = ""
@@ -87,7 +134,7 @@ class MenuStepView: UIView {
         if let imageLinkFromJSON = json["image_link"] as? String {
             imageLink = imageLinkFromJSON
         }
-        return RecipeInstruction(title: title, description: description, imageLink: imageLink, step: number)
+        return RecipeInstruction(title: title, step: number)
     }
 
     override open func layoutSubviews() {
