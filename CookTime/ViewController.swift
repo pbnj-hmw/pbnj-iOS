@@ -99,7 +99,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
     
     private func setBambuserView() {
         bambuserView.orientation = UIInterfaceOrientation.landscapeRight
-        bambuserView.applicationId = "C2i37bAE4rpiQbIEll9tXA"
+        bambuserView.applicationId = "4nY96PkkMURC0E9s33ipSw"
         bambuserView.delegate = self;
     }
     
