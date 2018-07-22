@@ -29,9 +29,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
         addAllElementsToView()
         setUIElements()
         bindUIElements()
-        
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        setViewDelegates()
     }
     
     private func addAllElementsToView() {
@@ -84,6 +82,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
         setNextButton()
         setBambuserView()
         setBroadcastButton()
+        setViewOrientation()
     }
     
     private func setBackButton() {
@@ -107,21 +106,42 @@ class ViewController: UIViewController, BambuserViewDelegate {
         broadcastButton.setTitle("Broadcast", for: UIControlState.normal)
     }
     
+    private func setViewOrientation() {
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
     private func bindUIElements() {
         bindNextButton()
         bindBackButton()
     }
     
     private func bindNextButton() {
-        nextButton.reactive.tap.bind(to: self) { me in
+        nextButton.reactive.tap.skip(first: 1).bind(to: self) { me in
+            me.disableButtons()
             me.menuStepView.animateNext()
         }
     }
     
     private func bindBackButton() {
-        backButton.reactive.tap.bind(to: self) { me in
+        backButton.reactive.tap.skip(first: 1).bind(to: self) { me in
+            me.disableButtons()
             me.menuStepView.animatePrevious()
         }
+    }
+    
+    private func disableButtons() {
+        backButton.isEnabled = false
+        nextButton.isEnabled = false
+    }
+    
+    private func enableButtons() {
+        backButton.isEnabled = true
+        nextButton.isEnabled = true
+    }
+    
+    private func setViewDelegates() {
+        menuStepView.delegate = self
     }
     
     @objc func broadcast() {
@@ -161,5 +181,13 @@ extension ViewController {
     override var shouldAutorotate: Bool {
         return true
     }
+}
+
+extension ViewController: MenuStepViewDelegate {
+    func didEndAnimatingView() {
+        enableButtons()
+    }
+    
+    
 }
 

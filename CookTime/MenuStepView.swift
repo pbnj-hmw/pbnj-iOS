@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol MenuStepViewDelegate: class {
+    func didEndAnimatingView() -> Void
+}
+
 class MenuStepView: UIView {
+    public var delegate: MenuStepViewDelegate?
+    
     private var instructions: [String] = ["0", "1", "2", "3", "4"]
     private var currentIndex = 0
     private var displayingLabel = UILabel()
@@ -37,7 +43,10 @@ class MenuStepView: UIView {
     }
     
     public func animateNext() -> Bool {
-        guard currentIndex < instructions.count - 1 else { return false }
+        guard currentIndex < instructions.count - 1 else {
+            delegate?.didEndAnimatingView()
+            return false
+        }
         currentIndex += 1
         nextLabel.text = instructions[currentIndex]
         animateNextElementRightToLeft()
@@ -100,6 +109,19 @@ class MenuStepView: UIView {
         })
     }
     
+    public func animatePrevious() -> Bool {
+        guard currentIndex > 0 else {
+            delegate?.didEndAnimatingView()
+            return false
+        }
+        
+        currentIndex -= 1
+        nextLabel.text = instructions[currentIndex]
+        animateNextElementBack()
+        animateCurrentElementOffScreenBack()
+        return true
+    }
+    
     private func placeNextElementAgainstLeftWall() {
         self.nextLabel.snp.remakeConstraints { (make) in
             make.left.equalToSuperview()
@@ -126,16 +148,7 @@ class MenuStepView: UIView {
         let label = nextLabel
         nextLabel = displayingLabel
         displayingLabel = label
-    }
-
-    public func animatePrevious() -> Bool {
-        guard currentIndex > 0 else { return false }
-        
-        currentIndex -= 1
-        nextLabel.text = instructions[currentIndex]
-        animateNextElementBack()
-        animateCurrentElementOffScreenBack()
-        return true
+        delegate?.didEndAnimatingView()
     }
     
     private func initializeUI() {
