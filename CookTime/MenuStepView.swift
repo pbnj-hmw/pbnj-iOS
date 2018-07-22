@@ -9,15 +9,16 @@
 import Foundation
 import UIKit
 import SnapKit
+import Alamofire
 
 protocol MenuStepViewDelegate: class {
-    func didEndAnimatingView() -> Void
+    func didEndAnimatingViewSuccessfully(success: Bool)
 }
 
 class MenuStepView: UIView {
     public var delegate: MenuStepViewDelegate?
     
-    private var instructions: [String] = ["0", "1", "2", "3", "4"]
+    private var instructions: [RecipeInstruction] = []
     private var currentIndex = 0
     private var displayingLabel = UILabel()
     private var nextLabel = UILabel()
@@ -36,6 +37,57 @@ class MenuStepView: UIView {
         backgroundColor = .white
         initializeUI()
         createConstraints()
+        getRecipeItems()
+    }
+    
+    private func getRecipeItems() {
+        Alamofire.request("https://api.homecooked.live/api/items").responseJSON { [weak self] response in
+            guard let `self` = self else { return }
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+                self.parseRecipeData(data: response.data ?? Data())
+            }
+        }
+    }
+    
+    private func parseRecipeData(data: Data) {
+        do {
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let recipes = json as? [AnyObject] {
+                for recipe in recipes {
+                    guard let recipeJSON = recipe as? [String : AnyObject] else { continue }
+                    var recipe = parseRecipeJSON(json: recipeJSON)
+                    instructions.append(recipe)
+                }
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func parseRecipeJSON(json: [String: AnyObject]) -> RecipeInstruction {
+        var title = ""
+        var description = ""
+        var imageLink = ""
+        
+        if let titleFromJSON = json["title"] as? String {
+            title = titleFromJSON
+        }
+        if let descriptionFromJSON = json["description"] as? String {
+            description = descriptionFromJSON
+        }
+        if let imageLinkFromJSON = json["image_link"] as? String {
+            imageLink = imageLinkFromJSON
+        }
+        return RecipeInstruction(title: title, description: description, imageLink: imageLink)
     }
 
     override open func layoutSubviews() {
@@ -44,11 +96,11 @@ class MenuStepView: UIView {
     
     public func animateNext() -> Bool {
         guard currentIndex < instructions.count - 1 else {
-            delegate?.didEndAnimatingView()
+            delegate?.didEndAnimatingViewSuccessfully(success: false)
             return false
         }
         currentIndex += 1
-        nextLabel.text = instructions[currentIndex]
+        nextLabel.text = instructions[currentIndex].title
         animateNextElementTopToMiddle()
         animateCurrentElementOffScreen()
         return true
@@ -111,12 +163,12 @@ class MenuStepView: UIView {
     
     public func animatePrevious() -> Bool {
         guard currentIndex > 0 else {
-            delegate?.didEndAnimatingView()
+            delegate?.didEndAnimatingViewSuccessfully(success: false)
             return false
         }
         
         currentIndex -= 1
-        nextLabel.text = instructions[currentIndex]
+        nextLabel.text = instructions[currentIndex].description
         animateNextElementBack()
         animateCurrentElementOffScreenBack()
         return true
@@ -149,14 +201,14 @@ class MenuStepView: UIView {
         let label = nextLabel
         nextLabel = displayingLabel
         displayingLabel = label
-        delegate?.didEndAnimatingView()
+        delegate?.didEndAnimatingViewSuccessfully(success: true)
     }
     
     private func initializeUI() {
         addSubview(displayingLabel)
         addSubview(nextLabel)
         nextLabel.isHidden = true
-        displayingLabel.text = instructions[0]
+//        displayingLabel.text = instructions[0].description
     }
     
     private func createConstraints() {

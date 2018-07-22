@@ -187,7 +187,7 @@ extension ViewController {
 }
 
 extension ViewController: MenuStepViewDelegate {
-    func didEndAnimatingView() {
+    func didEndAnimatingViewSuccessfully(success: Bool) {
         enableButtons()
     }
 }
