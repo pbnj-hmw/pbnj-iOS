@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CookTime/MenuStepView.swift"
-            timestampString = "553936981.305889"
+            timestampString = "553938179.621492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "getRecipeItems()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CookTime/MenuStepView.swift"
-            timestampString = "553936981.306263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "parseRecipeData(data:)"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "renderFirstRecipe()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

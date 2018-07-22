@@ -20,8 +20,8 @@ class MenuStepView: UIView {
     
     private var instructions: [RecipeInstruction] = []
     private var currentIndex = 0
-    private var displayingLabel = UILabel()
-    private var nextLabel = UILabel()
+    private var displayingInstruction = RecipeView()
+    private var nextInstruction = RecipeView()
     
     public required init() {
         super.init(frame: CGRect.zero)
@@ -64,12 +64,11 @@ class MenuStepView: UIView {
             if let recipes = json as? [AnyObject] {
                 for recipe in recipes {
                     guard let recipeJSON = recipe as? [String : AnyObject] else { continue }
-                    var recipe = parseRecipeJSON(json: recipeJSON)
+                    let recipe = parseRecipeJSON(json: recipeJSON)
                     instructions.append(recipe)
                 }
+                renderFirstRecipe()
             }
-        } catch {
-            
         }
     }
     
@@ -100,7 +99,8 @@ class MenuStepView: UIView {
             return false
         }
         currentIndex += 1
-        nextLabel.text = instructions[currentIndex].title
+        let instruction = instructions[currentIndex]
+        nextInstruction.setRecipe(recipe: instruction)
         animateNextElementTopToMiddle()
         animateCurrentElementOffScreen()
         return true
@@ -108,9 +108,9 @@ class MenuStepView: UIView {
     
     private func animateNextElementTopToMiddle() {
         placeNextElementAgainstTopWall()
-        self.nextLabel.isHidden = false
+        self.nextInstruction.isHidden = false
         UIView.animate(withDuration: 1, animations: { [weak self] in
-            self?.nextLabel.snp.remakeConstraints({ (make) in
+            self?.nextInstruction.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
             })
@@ -119,7 +119,7 @@ class MenuStepView: UIView {
     }
     
     private func placeNextElementAgainstTopWall() {
-        self.nextLabel.snp.remakeConstraints({ [weak self] (make) in
+        self.nextInstruction.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.bottom.equalTo(self.snp.top)
@@ -132,7 +132,7 @@ class MenuStepView: UIView {
     }
     
     private func animateDisplayMiddleToBottom() {
-        displayingLabel.snp.remakeConstraints({ [weak self] (make) in
+        displayingInstruction.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.top.equalTo(self.snp.bottom)
@@ -142,18 +142,18 @@ class MenuStepView: UIView {
     
     private func animateNextElementBack() {
         placeNextElementAgainstBottomWall()
-        showNextLabel()
+        shownextInstruction()
         animateNextElementBottomToMiddle()
     }
     
-    private func showNextLabel() {
-        self.nextLabel.isHidden = false
+    private func shownextInstruction() {
+        self.nextInstruction.isHidden = false
     }
     
     private func animateNextElementBottomToMiddle() {
         UIView.animate(withDuration: 1, animations: { [weak self] in
             guard let `self` = self else { return }
-            self.nextLabel.snp.remakeConstraints({ (make) in
+            self.nextInstruction.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
                 make.centerY.equalToSuperview()
             })
@@ -168,14 +168,15 @@ class MenuStepView: UIView {
         }
         
         currentIndex -= 1
-        nextLabel.text = instructions[currentIndex].description
+        let instruction = instructions[currentIndex]
+        nextInstruction.setRecipe(recipe: instruction)
         animateNextElementBack()
         animateCurrentElementOffScreenBack()
         return true
     }
     
     private func placeNextElementAgainstBottomWall() {
-        self.nextLabel.snp.remakeConstraints { [weak self] (make) in
+        self.nextInstruction.snp.remakeConstraints { [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.top.equalTo(self.snp.bottom)
@@ -188,39 +189,52 @@ class MenuStepView: UIView {
     }
     
     private func animateDisplayLabelToTop() {
-        displayingLabel.snp.remakeConstraints({ [weak self] (make) in
+        displayingInstruction.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalToSuperview()
             make.bottom.equalTo(self.snp.top)
         })
         layoutIfNeeded()
     }
-    
+
     private func swapDisplayAndCurrentLabels(_: Bool) {
-        displayingLabel.isHidden = true
-        let label = nextLabel
-        nextLabel = displayingLabel
-        displayingLabel = label
+        displayingInstruction.isHidden = true
+        let label = nextInstruction
+        nextInstruction = displayingInstruction
+        displayingInstruction = label
         delegate?.didEndAnimatingViewSuccessfully(success: true)
     }
     
     private func initializeUI() {
-        addSubview(displayingLabel)
-        addSubview(nextLabel)
-        nextLabel.isHidden = true
-//        displayingLabel.text = instructions[0].description
+//        guard let next = nextInstruction, let displaying = displayingInstruction else {
+//            print ("recipe could not be unwrapped")
+//            return
+//        }
+        addSubview(displayingInstruction)
+        addSubview(nextInstruction)
+        nextInstruction.isHidden = true
+//        displayingInstruction.text = instructions[0].description
     }
     
     private func createConstraints() {
-        displayingLabel.snp.makeConstraints { (make) in
+        displayingInstruction.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         
-        nextLabel.snp.makeConstraints { [weak self] (make) in
+        nextInstruction.snp.makeConstraints { [weak self] (make) in
             guard let `self` = self else { return }
             make.centerX.equalTo(self.snp.left)
             make.centerY.equalToSuperview()
         }
+    }
+    
+    private func renderFirstRecipe() {
+        guard instructions.count > 0 else {
+            print("no recipes in the list, how they be added to the view")
+            return
+        }
+        let instruction = instructions[0]
+        displayingInstruction.setRecipe(recipe: instruction)
     }
 }
