@@ -44,9 +44,7 @@ class RecipeView: UIView {
         
         step.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
+            make.centerX.equalTo(title.snp.centerX)
         }
         
         container.snp.makeConstraints { (make) in

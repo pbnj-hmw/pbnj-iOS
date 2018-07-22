@@ -64,6 +64,7 @@ class MenuStepView: UIView {
             if let recipes = json as? [AnyObject] {
                 for (index, recipe) in recipes.enumerated() {
                     guard let recipeJSON = recipe as? [String : AnyObject] else { continue }
+                    var index = index + 1
                     let recipe = parseRecipeJSON(json: recipeJSON, number: index)
                     instructions.append(recipe)
                 }
