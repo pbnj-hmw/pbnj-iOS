@@ -62,6 +62,7 @@ class ViewController: UIViewController, BambuserViewDelegate {
             make.height.equalToSuperview().multipliedBy(0.5)
             make.width.equalToSuperview().multipliedBy(0.25)
             make.bottom.equalToSuperview()
+            make.left.equalTo(menuStepView.snp.left)
         }
         
         nextButton.snp.makeConstraints { (make) in
@@ -88,13 +89,13 @@ class ViewController: UIViewController, BambuserViewDelegate {
     }
     
     private func setBackButton() {
-        backButton.setTitle("Back", for: .normal)
-        backButton.backgroundColor = UIColor.red
+        backButton.backgroundColor = UIColor.white
+        backButton.setImage(#imageLiteral(resourceName: "leftArrow"), for: .normal)
     }
     
     private func setNextButton() {
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.backgroundColor = UIColor.green
+        nextButton.backgroundColor = UIColor.white
+        nextButton.setImage(#imageLiteral(resourceName: "rightArrow"), for: .normal)
     }
     
     private func setBambuserView() {
@@ -189,7 +190,5 @@ extension ViewController: MenuStepViewDelegate {
     func didEndAnimatingView() {
         enableButtons()
     }
-    
-    
 }
 
