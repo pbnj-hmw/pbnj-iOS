@@ -62,6 +62,7 @@ class RecipeView: UIView {
     
     private func setRecipeTitle () {
         title.text = recipe?.title
+        step.font = UIFont.italicSystemFont(ofSize: 13)
     }
     
     private func setRecipeStep() {
@@ -70,7 +71,8 @@ class RecipeView: UIView {
             return
         }
         let stepNumberInt = String(stepNumber)
-        step.text = "Step" + String(stepNumberInt)
+        step.text = "Step " + String(stepNumberInt)
+        step.font = UIFont.boldSystemFont(ofSize: 15)
     }
     
     private func addItemsToView(){
