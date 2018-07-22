@@ -40,56 +40,14 @@ class MenuStepView: UIView {
         guard currentIndex < instructions.count - 1 else { return false }
         currentIndex += 1
         nextLabel.text = instructions[currentIndex]
-        animateNextElementLeftToRight()
+        animateNextElementRightToLeft()
         animateCurrentElementOffScreen()
         return true
     }
     
-    private func animateNextElementLeftToRight() {
-        placeNextElementAgainstLeftWall()
-        self.nextLabel.isHidden = false
-        UIView.animate(withDuration: 1, animations: { [weak self] in
-            self?.nextLabel.snp.remakeConstraints({ (make) in
-                make.centerX.equalToSuperview()
-                make.centerY.equalToSuperview()
-            })
-            self?.layoutIfNeeded()
-        })
-    }
-    
-    private func placeNextElementAgainstLeftWall() {
-        self.nextLabel.snp.remakeConstraints({ [weak self] (make) in
-            guard let `self` = self else { return }
-            make.centerX.equalTo(self.snp.left)
-            make.centerY.equalToSuperview()
-        })
-        self.layoutIfNeeded()
-    }
-    
-    private func animateCurrentElementOffScreen() {
-        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToRight, completion: swapDisplayAndCurrentLabels)
-    }
-    
-    private func animateDisplayLabelToRight() {
-        displayingLabel.snp.remakeConstraints({ [weak self] (make) in
-            guard let `self` = self else { return }
-            make.centerX.equalTo(self.snp.right)
-            make.centerY.equalToSuperview()
-        })
-        layoutIfNeeded()
-    }
-    
-    private func animateNextElementBack() {
+    private func animateNextElementRightToLeft() {
         placeNextElementAgainstRightWall()
-        showNextLabel()
-        animateNextElementMiddleToLeft()
-    }
-    
-    private func showNextLabel() {
         self.nextLabel.isHidden = false
-    }
-    
-    private func animateNextElementMiddleToLeft() {
         UIView.animate(withDuration: 1, animations: { [weak self] in
             self?.nextLabel.snp.remakeConstraints({ (make) in
                 make.centerX.equalToSuperview()
@@ -100,21 +58,64 @@ class MenuStepView: UIView {
     }
     
     private func placeNextElementAgainstRightWall() {
+        self.nextLabel.snp.remakeConstraints({ [weak self] (make) in
+            guard let `self` = self else { return }
+            make.centerX.equalTo(self.snp.right)
+            make.centerY.equalToSuperview()
+        })
+        self.layoutIfNeeded()
+    }
+    
+    private func animateCurrentElementOffScreen() {
+        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToLeft, completion: swapDisplayAndCurrentLabels)
+    }
+    
+    private func animateDisplayLabelToLeft() {
+        displayingLabel.snp.remakeConstraints({ [weak self] (make) in
+            guard let `self` = self else { return }
+            make.centerX.equalTo(self.snp.left)
+            make.centerY.equalToSuperview()
+        })
+        layoutIfNeeded()
+    }
+    
+    private func animateNextElementBack() {
+        placeNextElementAgainstLeftWall()
+        showNextLabel()
+        animateNextElementLeftToMiddle()
+    }
+    
+    private func showNextLabel() {
+        self.nextLabel.isHidden = false
+    }
+    
+    private func animateNextElementLeftToMiddle() {
+        UIView.animate(withDuration: 1, animations: { [weak self] in
+            guard let `self` = self else { return }
+            self.nextLabel.snp.remakeConstraints({ (make) in
+                make.centerX.equalTo(self.snp.centerX)
+                make.centerY.equalToSuperview()
+            })
+            self.layoutIfNeeded()
+        })
+    }
+    
+    private func placeNextElementAgainstLeftWall() {
         self.nextLabel.snp.remakeConstraints { (make) in
-            make.right.equalToSuperview()
+            make.left.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         self.layoutIfNeeded()
     }
     
     private func animateCurrentElementOffScreenBack() {
-        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToMiddle, completion: swapDisplayAndCurrentLabels)
+        UIView.animate(withDuration: 1.0, animations: animateDisplayLabelToRight, completion: swapDisplayAndCurrentLabels)
     }
     
-    private func animateDisplayLabelToMiddle() {
+    private func animateDisplayLabelToRight() {
         displayingLabel.snp.remakeConstraints({ [weak self] (make) in
             guard let `self` = self else { return }
-            make.centerX.equalTo(self.snp.left)
+            make.centerX.equalTo(self.snp.right)
             make.centerY.equalToSuperview()
         })
         layoutIfNeeded()
