@@ -206,14 +206,9 @@ class MenuStepView: UIView {
     }
     
     private func initializeUI() {
-//        guard let next = nextInstruction, let displaying = displayingInstruction else {
-//            print ("recipe could not be unwrapped")
-//            return
-//        }
         addSubview(displayingInstruction)
         addSubview(nextInstruction)
         nextInstruction.isHidden = true
-//        displayingInstruction.text = instructions[0].description
     }
     
     private func createConstraints() {
