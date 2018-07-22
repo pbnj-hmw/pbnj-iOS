@@ -11,7 +11,6 @@ import SnapKit
 import Bond
 
 class ViewController: UIViewController, BambuserViewDelegate {
-
     var bambuserView: BambuserView
     var broadcastButton : UIButton
     let menuStepView = MenuStepView()
@@ -44,38 +43,37 @@ class ViewController: UIViewController, BambuserViewDelegate {
     }
     
     override func viewWillLayoutSubviews() {
-        var statusBarOffset : CGFloat = 0.0
-        statusBarOffset = CGFloat(self.topLayoutGuide.length)
         
         bambuserView.view.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.00)
+            make.right.equalTo(backButton.snp.left)
+            make.width.equalTo(menuStepView.snp.width)
             make.height.equalToSuperview()
+            make.left.equalToSuperview()
         }
         
         broadcastButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-15)
-            make.right.equalToSuperview().multipliedBy(0.80)
+            make.centerX.equalTo(bambuserView.view.snp.centerX)
         }
-        
+
         backButton.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
+            make.right.equalTo(nextButton.snp.left)
             make.height.equalToSuperview().multipliedBy(0.5)
             make.width.equalToSuperview().multipliedBy(0.25)
             make.bottom.equalToSuperview()
         }
         
         nextButton.snp.makeConstraints { (make) in
-            make.left.equalTo(backButton.snp.right)
+            make.right.equalTo(view.snp.right)
             make.height.equalToSuperview().multipliedBy(0.50)
             make.width.equalToSuperview().multipliedBy(0.25)
             make.bottom.equalToSuperview()
         }
-        
+
         menuStepView.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.right.equalTo(bambuserView.view.snp.left)
+            make.right.equalToSuperview()
+            make.left.equalTo(bambuserView.view.snp.right)
             make.height.equalToSuperview().multipliedBy(0.50)
             make.top.equalToSuperview()
         }
